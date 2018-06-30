@@ -1,12 +1,25 @@
 #!/bin/bash
 
-read -p "Docker Name []: " name
+read -p "Docker Image []: " image
+
+while [ -z "$image" ]; do
+    echo "Select Image to Run: "
+    docker images --format "table {{.Repository}}\t{{.Repository}}:{{.Tag}}\t{{.CreatedSince}}\t{{.Size}}"
+    read -p "Docker Image []: " image
+done
+
+read -p "Container Name []: " name
 read -p "Port Map []: " port
 read -p "Volume Map []: " volume
 read -p "Command [bash]: " cmd
 
 sname=""
-if [ -n "$name" ]; then sname="--name=$name"; fi
+if [ -n "$name" ]; then 
+    sname="--name=$name"
+else 
+    name=container-`date +%s`
+    sname="--name=$name"
+fi
 
 sport=""
 for n in $port; do 
@@ -22,7 +35,7 @@ if [ -z "$cmd" ]; then
     cmd="bash"
 fi
 
-docker run -itd $sname $sport $svolume $1 $cmd
+docker run -itd $sname $sport $svolume $image $cmd
 
 tmpfile=/tmp/set-PS1-in-container.sh
 
