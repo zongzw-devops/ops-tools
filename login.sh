@@ -5,15 +5,23 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
     exit 1;
 fi;
 
-username=zong
-pubkey=`cat ~/.ssh/id_rsa.pub`
-ssh $username@$1 "\
-    mkdir -p /home/$username/.ssh; \
-    [ ! -f /home/$username/.ssh/authorized_keys ] && touch /home/$username/.ssh/authorized_keys; \
-    grep \"$pubkey\" /home/$username/.ssh/authorized_keys > /dev/null 2>&1; \
-    [ \$? -ne 0 ] && echo $pubkey > /home/$username/.ssh/authorized_keys; \
-    chmod 600 /home/$username/.ssh/authorized_keys; \
-    grep sudo\ su /home/$username/.bashrc > /dev/null 2>&1; \
-    if [ \$? -ne 0 ]; then echo sudo su; echo sudo su >> /home/$username/.bashrc; fi"  > /dev/null 2>&1
+echo $1 | grep '@' > /dev/null
+if [ $? -ne 0 ]; then 
+    username=root
+    address=$1
+    home=/root
+else 
+    username=`echo $1 | cut -d '@' -f 1`
+    address=`echo $1 | cut -d '@' -f 2`
+    home=/home/$username
+fi
 
-ssh $username@$1
+pubkey=`cat ~/.ssh/id_rsa.pub`
+ssh $username@$address "\
+    mkdir -p $home/.ssh; \
+    [ ! -f $home/.ssh/authorized_keys ] && touch $home/.ssh/authorized_keys; \
+    grep \"$pubkey\" $home/.ssh/authorized_keys > /dev/null 2>&1; \
+    [ \$? -ne 0 ] && echo $pubkey > $home/.ssh/authorized_keys; \
+    chmod 600 $home/.ssh/authorized_keys;"  > /dev/null 2>&1
+
+ssh $username@$address
