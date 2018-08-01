@@ -2,7 +2,8 @@
 
 docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
 
-read -p "Container Name: " name
+read -p "Container Names: " names
 
-docker stop $name
-docker rm $name
+docker stop $names
+docker rm $names
+
