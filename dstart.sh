@@ -28,15 +28,18 @@ for n in $port; do
 done
 
 ##################### volume maps ###########################
-voldefault="$PWD:/root/$name"
-read -p "Volume Map [$voldefault]: " volume
+voldefault="$PWD : /root/$name"
+read -p "Volume Map [ $voldefault ]: ('n' to skip) " volume
 svolume=""
-for n in $volume; do 
-    svolume="$svolume -v $n"
-done
-if [ -z "$svolume" ]; then 
+if [ -z "$volume" ]; then 
     svolume="-v $voldefault"
-fi 
+elif [ "$volume" = "n" ]; then 
+    svolume=""
+else
+    for n in $volume; do 
+        svolume="$svolume -v $n"
+    done
+fi
 
 ##################### command ###########################
 read -p "Command [bash]: " cmd
