@@ -64,7 +64,7 @@ color=\$((\$RANDOM % 6 + 1))
 COLOR="\\[\\\$(tput setaf \$color)\\]"
 RESET="\\[\\\$(tput sgr0)\\]"
 
-echo "export PS1=\"\${COLOR}[\u@host-$name \\W]\$ \${RESET}\"" >> /root/.bashrc
+echo "export PS1=\"\${COLOR}[\u@container-$name \\W]\$ \${RESET}\"" >> /root/.bashrc
 
 EOF
 
