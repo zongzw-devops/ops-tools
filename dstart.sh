@@ -32,7 +32,7 @@ voldefault="$PWD : /root/$name"
 read -p "Volume Map [ $voldefault ]: ('n' to skip) " volume
 svolume=""
 if [ -z "$volume" ]; then 
-    svolume="-v $voldefault"
+    svolume="-v `echo $voldefault | sed 's/ : /:/'`"
 elif [ "$volume" = "n" ]; then 
     svolume=""
 else
