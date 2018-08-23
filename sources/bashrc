@@ -10,7 +10,6 @@ fi
 color=
 while true; do 
     color=$(($RANDOM % 6 + 1))
-    echo $color
     if [ $color -ne 4 ]; then 
         break
     fi
