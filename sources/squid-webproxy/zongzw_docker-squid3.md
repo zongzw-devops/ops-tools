@@ -4,7 +4,7 @@
 
 1.Pull it to local and run it: 
 ```
-$ docker pull zongzw/docker-squid3
+$ docker pull zongzw/docker-squid3:0.1
 $ docker run -itd --name squid3 -p 3128:3128 zongzw/docker-squid3:0.1 
 
 ```
