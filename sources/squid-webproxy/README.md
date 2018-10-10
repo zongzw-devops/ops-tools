@@ -1,2 +1,5 @@
-This process described here is deprecated, please refer to: 
+This process described here is **DEPRECATED**. 
+
+Please refer to: 
+
 https://github.com/zongzw/squid-webproxy
