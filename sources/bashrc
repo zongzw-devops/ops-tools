@@ -19,7 +19,7 @@ COLOR="\[$(tput setaf $color)\]"
 RESET="\[$(tput sgr0)\]"
 export PS1="${COLOR}[\u@\h \W]\$ ${RESET}"
 
-export PATH=$PATH:/Users/zong/GitRepos/2.github/zongzw/self-ops-tools/commands
+export PATH=$PATH:/Users/zong/GitRepos/zongzw/self-ops-tools/commands
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
