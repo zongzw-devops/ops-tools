@@ -5,7 +5,7 @@ import sys
 python joinfiles.py <target> <file list ...>
 '''
 if len(sys.argv) <= 1:
-    print("file list cannot be empty.")
+    print("python joinfiles.py <target> <file list ...>: file list cannot be empty.")
     sys.exit(1)
 
 target = sys.argv[1]
