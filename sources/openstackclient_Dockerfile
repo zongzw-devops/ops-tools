@@ -1,0 +1,7 @@
+FROM centos:7
+RUN yum update -y
+RUN yum install -y epel-release
+RUN yum install -y python-devel gcc python-pip
+RUN pip install --upgrade pip
+RUN pip install --ignore-installed python-openstackclient
+

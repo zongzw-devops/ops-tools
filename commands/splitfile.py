@@ -40,7 +40,7 @@ print("rw size per time: %s " % rwsize)
 index = 0
 with open(filepath, 'rb') as fr:
     while fr.tell() < filesize:
-        target = os.path.join(targetpath, "%s.%d" % (targetpref, index))
+        target = os.path.join(targetpath, "%s.%03d" % (targetpref, index))
         print("writing to %s" % target)
 
         perfilesize = 0
