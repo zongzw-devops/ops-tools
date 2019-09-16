@@ -49,7 +49,7 @@ if [ -z "$cmd" ]; then
 fi
 
 ##################### docker run ###########################
-docker run -itd $sname $sport $svolume $image $cmd
+docker run -itd --privileged $sname $sport $svolume $image $cmd
 if [ $? -ne 0 ]; then 
     echo "Failed to start container: $name"
     exit 1
