@@ -1,0 +1,9 @@
+version: "3"
+services:
+  wssh:
+    build: .
+    image: zongzw/webssh:1.0.0
+    ports:
+     - 4433:4433
+    volumes:
+     - ./certs:/certs
