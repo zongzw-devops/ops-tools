@@ -9,4 +9,3 @@ services:
       - ${SQUIDHOME}/password:/var/squid3/password
       - ${SQUIDHOME}/squid.conf:/etc/squid3/squid.conf
       - ${SQUIDHOME}/logs:/var/log/squid3
-      - ${SQUIDHOME}/cachedir:/var/spool/squid3

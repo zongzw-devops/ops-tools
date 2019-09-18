@@ -34,9 +34,3 @@ for n in $auth_required; do
 done
 fi
 
-cat << EOF >> $cdir/squid.conf
-
-cache_mem 2048 MB
-cache_dir ufs /var/spool/squid3 10000 256 256
-
-EOF
