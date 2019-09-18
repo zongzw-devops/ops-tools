@@ -1,10 +1,10 @@
 FROM centos:7
 
 # build with:
-#   docker build . -f Dockerfile_centos -t f5-ps-21vvpn:latest
+#   docker build . -f Dockerfile_centos -t zongzw/f5-ps-21vvpn-centos:latest
 
 # run with:
-#   docker run -e USERNAME=$user -e PASSWORD=$pass --privileged f5-ps-21vvpn:latest
+#   docker run -e USERNAME=$user -e PASSWORD=$pass --privileged zongzw/f5-ps-21vvpn-centos:latest
 
 
 RUN yum update -y 

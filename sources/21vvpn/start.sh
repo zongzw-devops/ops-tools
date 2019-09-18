@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 cdir=`cd $(dirname $0); pwd`
-image_name=f5-ps-21vvpn:latest
+image_name=zongzw/f5-ps-21vvpn-centos:latest
 container_name=VPNC
 
 [ $# -ne 2 ] && echo "$0 <user> <password>" && exit 1

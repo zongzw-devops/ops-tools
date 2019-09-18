@@ -1,10 +1,10 @@
 FROM ubuntu:16.04
 
 # build with:
-#   docker build . -f Dockerfile_ubuntu -t f5-ps-21vvpn:latest
+#   docker build . -f Dockerfile_ubuntu -t f5-ps-21vvpn-ubuntu:latest
 
 # run with:
-#   docker run -e USERNAME=$user -e PASSWORD=$pass --privileged f5-ps-21vvpn:latest
+#   docker run -e USERNAME=$user -e PASSWORD=$pass --privileged f5-ps-21vvpn-ubuntu:latest
 
 
 RUN apt-get update -y
