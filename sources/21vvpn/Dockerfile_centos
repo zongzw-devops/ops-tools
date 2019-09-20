@@ -12,7 +12,11 @@ RUN yum update -y
 COPY ps-pulse-linux-9.1r2.0-b69-centos-rhel-64-bit-installer.rpm /root
 COPY ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 RUN yum install -y glib-networking webkitgtk3 libgnome-keyring libproxy-gnome libproxy-mozjs libproxy
-RUN yum install -y sudo sysvinit-tools vim net-tools
+RUN yum install -y sudo sysvinit-tools vim net-tools squid epel-release
+RUN yum install -y python-pip
+RUN pip install --upgrade distribute
+RUN pip install webssh
+RUN pip install tornado==5.0.2
 RUN rpm -ivh /root/ps-pulse-linux-9.1r2.0-b69-centos-rhel-64-bit-installer.rpm
 
-ENTRYPOINT /usr/local/pulse/PulseClient_x86_64.sh -h ${HOST:-183.84.2.165} -u ${USERNAME} -p ${PASSWORD} -r Users -L 5 > /dev/null 
+ENTRYPOINT (squid &) && (wssh &) && /usr/local/pulse/PulseClient_x86_64.sh -h ${HOST:-183.84.2.165} -u ${USERNAME} -p ${PASSWORD} -r Users -L 5 > /dev/null 
