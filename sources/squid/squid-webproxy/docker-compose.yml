@@ -9,3 +9,13 @@ services:
       - ${SQUIDHOME}/password:/var/squid3/password
       - ${SQUIDHOME}/squid.conf:/etc/squid3/squid.conf
       - ${SQUIDHOME}/logs:/var/log/squid3
+    networks:
+      - squid-net
+
+networks:
+  squid-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.248.0/24
+
