@@ -1,0 +1,7 @@
+set proxy with `proxy.rc`, then 
+
+wget --no-check-certificate https://files.readme.io/5761a8e-Screen_Shot_2016-12-20_at_08.21.17.png
+
+Notes that add `--no-check-certificate` or add myCA.pem to /etc/pki/tls/certs/ca-bundle.crt 
+
+

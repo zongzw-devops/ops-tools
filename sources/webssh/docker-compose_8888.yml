@@ -1,0 +1,7 @@
+version: "3"
+services:
+  wssh:
+    build: .
+    image: zongzw/webssh:1.0.0
+    ports:
+     - 8888:8888

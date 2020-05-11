@@ -1,0 +1,17 @@
+FROM ubuntu:16.04
+
+# build with:
+#   docker build . -f Dockerfile_ubuntu -t f5-ps-21vvpn-ubuntu:latest
+
+# run with:
+#   docker run -e USERNAME=$user -e PASSWORD=$pass --privileged f5-ps-21vvpn-ubuntu:latest
+
+
+RUN apt-get update -y
+
+COPY ps-pulse-linux-9.1r1.0-b21-ubuntu-debian-64-bit-installer.deb /root
+COPY ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+RUN apt-get install -y lsb-release libwebkitgtk-1.0-0 libproxy1v5 libproxy1-plugin-gsettings libproxy1-plugin-webkit libdconf1 libgnome-keyring0 dconf-gsettings-backend
+RUN dpkg --install /root/ps-pulse-linux-9.1r1.0-b21-ubuntu-debian-64-bit-installer.deb
+
+ENTRYPOINT /usr/local/pulse/PulseClient_x86_64.sh -h ${HOST:-183.84.2.165} -u ${USERNAME} -p ${PASSWORD} -r Users -L 5 > /dev/null 

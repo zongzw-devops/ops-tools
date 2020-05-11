@@ -1,0 +1,21 @@
+version: "3"
+services: 
+  web-proxy:
+    image: sameersbn/squid:3.3.8-23
+    container_name: SQUID
+    ports:
+      - 3128:3128
+    volumes:
+      - ${SQUIDHOME}/password:/var/squid3/password
+      - ${SQUIDHOME}/squid.conf:/etc/squid3/squid.conf
+      - ${SQUIDHOME}/logs:/var/log/squid3
+    networks:
+      - squid-net
+
+networks:
+  squid-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.248.0/24
+

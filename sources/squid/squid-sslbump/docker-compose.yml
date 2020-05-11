@@ -1,0 +1,13 @@
+version: "3"
+
+services: 
+  squid:
+    image: squid-bumpssl:latest
+    container_name: squid-proxy
+    ports:
+      - 3128:3128
+    volumes:
+      - ./squid.conf:/etc/squid/squid.conf
+      - ./myCA.pem:/etc/squid/ssl_cert/myCA.pem
+      - ./cache_dir:/var/spool/squid
+      - ./logs:/var/log/squid
