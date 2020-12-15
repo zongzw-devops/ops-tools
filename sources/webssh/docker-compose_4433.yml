@@ -7,3 +7,9 @@ services:
      - 4433:4433
     volumes:
      - ./certs:/certs
+    entrypoint:
+     - wssh 
+     - --port=4433
+     - --certfile=/certs/domain.crt 
+     - --keyfile=certs/domain.key 
+     - --fbidhttp=False
