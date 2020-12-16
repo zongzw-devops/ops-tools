@@ -5,3 +5,7 @@ services:
     image: zongzw/webssh:1.0.0
     ports:
      - 8888:8888
+    entrypoint:
+     - wssh 
+     - --port=8888
+     - --fbidhttp=False
