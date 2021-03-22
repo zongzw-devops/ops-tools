@@ -13,3 +13,4 @@ services:
      - --certfile=/certs/domain.crt 
      - --keyfile=certs/domain.key 
      - --fbidhttp=False
+     - --maxconn 50

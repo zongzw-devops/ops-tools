@@ -9,3 +9,4 @@ services:
      - wssh 
      - --port=8888
      - --fbidhttp=False
+     - --maxconn 50
