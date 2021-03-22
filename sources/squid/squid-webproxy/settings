@@ -1,6 +1,0 @@
-container_name=squid3-webproxy
-
-# user/password used by squid3 to auth connections.
-auth_required=""
-#auth_required="zongzw:andrewz common:common"
-

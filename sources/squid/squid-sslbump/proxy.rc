@@ -1,5 +1,0 @@
-export HTTP_PROXY=10.250.11.185:3128
-export HTTPS_PROXY=10.250.11.185:3128
-export http_proxy=10.250.11.185:3128
-export https_proxy=10.250.11.185:3128
-
