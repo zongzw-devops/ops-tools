@@ -45,11 +45,13 @@ fi
 read -p "Command [bash]: " cmd
 
 if [ -z "$cmd" ]; then 
-    cmd="bash"
+    entrypoint="--entrypoint /bin/bash"
+else
+    entrypoint="--entrypoint $cmd"
 fi
 
 ##################### docker run ###########################
-docker run -itd --privileged $sname $sport $svolume $image $cmd
+docker run -itd --privileged $sname $sport $svolume $entrypoint $image
 if [ $? -ne 0 ]; then 
     echo "Failed to start container: $name"
     exit 1

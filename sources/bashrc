@@ -19,7 +19,8 @@ COLOR="\[$(tput setaf $color)\]"
 RESET="\[$(tput sgr0)\]"
 export PS1="${COLOR}[\u@\h \W]\$ ${RESET}"
 
-export PATH=$PATH:/Users/zong/GitRepos/zongzw/self-ops-tools/commands
+export PATH=$PATH:/Users/zong/GitRepos/zongzw/zongzw-devops/ops-tools/commands
+export PATH="$PATH:/usr/local/opt/inetutils/libexec/gnubin"
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
@@ -29,3 +30,6 @@ export WORKON_HOME=~/PythonEnvs
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+alias ll='ls -l'
+alias tailf='tail -f'
