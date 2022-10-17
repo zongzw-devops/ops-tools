@@ -1,0 +1,13 @@
+---
+
+- hosts: hosts
+  remote_user: root
+  gather_facts: false
+  tasks:
+    - name: rename hostname
+      shell:  echo "k8s-host-{{ inventory_hostname | replace('.', '-')}}" > /etc/hostname
+
+    - name: set envrionment
+      shell: |
+        echo LANG=en_US.utf-8 > /etc/environment
+        echo LC_ALL=en_US.utf-8 >> /etc/environment

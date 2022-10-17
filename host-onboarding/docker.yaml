@@ -1,0 +1,16 @@
+---
+
+- hosts: hosts
+  remote_user: root
+  gather_facts: false
+  tasks:
+    # - name: wget shell script
+    #   shell: 
+    #     cd /root
+    #     wget http://10.250.11.185/scripts/install-dockerce-centos.sh
+    #     chmod +x install-dockerce-centos.sh
+
+    - name: copy to remote
+      copy: src=./envs/install-docker-centos.sh dest=/root/ force=yes mode=0755
+
+    # run script manually because it has interaction.

@@ -1,0 +1,9 @@
+---
+
+- hosts: hosts
+  remote_user: root
+  gather_facts: false
+  tasks:
+    - name: start service
+      shell: |
+        systemctl start docker

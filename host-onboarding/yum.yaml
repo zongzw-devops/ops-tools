@@ -1,0 +1,9 @@
+---
+
+- hosts: hosts
+  remote_user: root
+  gather_facts: false
+  tasks:
+    - name: install kinds of yums
+      shell: |
+        yum install -y vim wget

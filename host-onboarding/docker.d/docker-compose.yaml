@@ -1,0 +1,12 @@
+services:
+  onboarding-system:
+    image: host-onboarding-ansible-env:latest
+    container_name: onboarding-system
+    working_dir: /onboarding-dir
+    build: .
+    volumes:
+      - ~/.ssh:/root/.ssh
+      - $HOMEDIR/..:/onboarding-dir
+    entrypoint: /bin/bash
+    stdin_open: true
+    tty: true

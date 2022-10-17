@@ -1,0 +1,14 @@
+---
+
+- hosts: hosts
+  remote_user: root
+  gather_facts: false
+  tasks:
+    - name: disable selinux
+      shell: setenforce 0
+
+    - name: disable selinux and reboot
+      shell: |
+        sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+        reboot
+      ignore_errors: yes

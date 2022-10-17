@@ -1,0 +1,11 @@
+---
+
+- hosts: hosts
+  remote_user: root
+  gather_facts: false
+  tasks:
+    - name: resize fs
+      shell: |
+        vgextend cl /dev/sda4
+        lvextend -L 60G /dev/mapper/cl-root00
+        resize2fs /dev/mapper/cl-root00

@@ -20,6 +20,7 @@ RESET="\[$(tput sgr0)\]"
 export PS1="${COLOR}[\u@\h \W]\$ ${RESET}"
 
 export PATH=$PATH:/Users/zong/GitRepos/zongzw/zongzw-devops/ops-tools/commands
+export PATH=$PATH:/usr/local/go/bin:/Users/zong/go/bin
 export PATH="$PATH:/usr/local/opt/inetutils/libexec/gnubin"
 
 # Make bash check its window size after a process completes
@@ -33,3 +34,11 @@ fi
 
 alias ll='ls -l'
 alias tailf='tail -f'
+alias k18='kubectl --kubeconfig ~/.kube/k8s-1-18.yaml'
+alias k19='kubectl --kubeconfig ~/.kube/k8s-1-19-calico.yaml'
+alias k21='kubectl --kubeconfig ~/.kube/k8s-1-21-calico.yaml'
+alias k22='kubectl --kubeconfig ~/.kube/k8s-1-22.yaml'
+alias k23='kubectl --kubeconfig ~/.kube/k8s-1-23.yaml'
+alias k24vio='kubectl --kubeconfig ~/.kube/vio-k8s-24-flannel.yaml'
+
+go env -w GOPROXY=https://goproxy.cn,direct

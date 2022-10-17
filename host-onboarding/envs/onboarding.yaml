@@ -1,0 +1,15 @@
+---
+
+- hosts: hosts
+  gather_facts: false
+  remote_user: "{{ remote_user }}"
+  tasks:
+    - name: recording
+      shell: echo {{ item }}
+      with_items:
+        - ssh_key login
+        - password enablement
+        - root password
+        - yum install -y wget tree curl git
+        - install docker docker-compose
+        - remove selinux
